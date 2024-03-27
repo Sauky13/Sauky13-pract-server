@@ -1,5 +1,5 @@
 {
-    "name": "sauky13/pract-server",
+    "name": "kremi/sauky13-pract-server",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -11,8 +11,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^7.4 | ^8.0",
-        "illuminate/database": "^11.0@dev",
-        "illuminate/events": "^11.0@dev"
+        "illuminate/database": "^12.0@dev",
+        "illuminate/events": "^12.0@dev" 
     },
     "autoload": {
         "psr-4": {
