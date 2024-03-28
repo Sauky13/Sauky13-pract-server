@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Админ-панель</title>
+    <title>Аь</title>
 </head>
 <body>
 
@@ -24,7 +24,7 @@ if (app()->auth::check()) {
                     font-weight: 600;
                 }
             </style>
-            <li><a href="<?= app()->route->getUrl('/add_employee.php') ?>">Добавить нового сотрудника</a></li>
+            <li><a href="<?= app()->route->getUrl('/signup') ?>">Добавить нового сотрудника</a></li>
             <li><a href="<?= app()->route->getUrl('/count_seats_by_buildings') ?>">Подсчёт кол-ва посадочных мест по зданиям</a></li>
             <li><a href="<?= app()->route->getUrl('/count_total_area_by_institution') ?>">Подсчёт общей площади учебных аудиторий по уч заведению</a></li>
             <li><a href="<?= app()->route->getUrl('/count_total_area_by_buildings') ?>">Подсчёт общей площади учебных аудиторий по зданиям</a></li>

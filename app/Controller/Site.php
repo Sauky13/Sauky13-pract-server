@@ -10,21 +10,31 @@ use Src\Auth\Auth;
 
 class Site
 {
-    public function index(Request $request): string
-    {
-        $posts = Post::all();
-        return (new View())->render('site.post', ['posts' => $posts]);
-    }
-
 
     public function hello(): string
     {
         return new View('site.hello', ['message' => 'hello working!!!']);
     }
+
+
+    public function add_rooms(Request $request): string
+    {
+        return new View('site.add_rooms');
+    }
+    public function add_buildings(Request $request): string
+    {
+        return new View('site.add_buildings');
+    }
+    public function count_seats_by_buildings(Request $request): string
+    {
+        return new View('site.count_seats_by_buildings');
+    }
+
+
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/go');
+            app()->route->redirect('/hello');
         }
         return new View('site.signup');
     }
@@ -47,6 +57,7 @@ class Site
        Auth::logout();
        app()->route->redirect('/hello');
     }
+
     
 
 }

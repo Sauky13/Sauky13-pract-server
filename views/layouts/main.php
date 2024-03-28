@@ -6,7 +6,7 @@
          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Pop it MVC</title>
-
+    <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body style="margin:10px;   font-size:14px;
     font-family:Verdana;">
@@ -19,7 +19,9 @@
         <?php
         else:
             ?>
+            <a style="text-decoration: none; color: #3d3d3d; font-weight:600" href="<?= app()->route->getUrl('/hello') ?>"><-</a>
             <a style="text-decoration: none; color: #3d3d3d; font-weight:600" href="<?= app()->route->getUrl('/logout') ?>">Выйти</a>
+
             <?php
             if (app()->auth::user()->role_id === 1):
                 ?>
