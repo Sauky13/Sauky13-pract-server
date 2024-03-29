@@ -6,15 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-<h2 style="font-size: x-small">Добавление нового помещения</h2>
+<h2>Добавление нового помещения</h2>
 <h3><?= $message ?? ''; ?></h3>
-<form method="post" style="display: flex; gap: 20px; flex-direction: column; width: 800px"  method="post">
-    <label><input type="text" name="login" placeholder="Название" style="background: rgba(236, 236, 236, 1);border: none;height: 22px;font-weight: 600;"></label>
-    <label> <input type="text" name="password" placeholder="Вид помещения" style="background: rgba(236, 236, 236, 1);border: none;height: 22px;font-weight: 600;"></label>
-    <label> <input type="text" name="name" placeholder="Площадь" style="background: rgba(236, 236, 236, 1);border: none;height: 22px;font-weight: 600;"></label>
-    <label> <input type="text" name="name" placeholder="Количество посадочных мест" style="background: rgba(236, 236, 236, 1);border: none;height: 22px;font-weight: 600;"></label>
-    <label> <input type="text" name="name" placeholder="Здание" style="background: rgba(236, 236, 236, 1);border: none;height: 22px;font-weight: 600;"></label>
-    <button style="width: 99px;border: none;background-color: rgba(170, 170, 170, 1);color: white;font-weight: 600;height: 28px;">Добавить</button>
+<form method="post"  method="post">
+    <label><input type="text" name="login" placeholder="Название"></label>
+    <select placeholder="Вид помещения" plaid="select_room_types">
+            <option>Аудитория</option>
+            <option>Лабаратория</option>
+            <option>Подсобное помещение</option>
+            <option>Актовый зал</option>
+            <option>Склад</option>
+        </select>
+    <label> <input type="text" name="name" placeholder="Площадь"></label>
+    <label> <input type="text" name="name" placeholder="Кол-во посадочных мест"></label>
+    <select>
+            <option>Здание</option>
+    </select> 
+    <button id="Btn_add">Добавить</button>
 </form>
 </body>
 </html>

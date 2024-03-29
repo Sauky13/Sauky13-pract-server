@@ -2,7 +2,6 @@
 
 namespace Controller;
 
-use Model\Post;
 use Src\Request;
 use Src\View;
 use Model\User;
@@ -13,7 +12,7 @@ class Site
 
     public function hello(): string
     {
-        return new View('site.hello', ['message' => 'hello working!!!']);
+        return new View('site.hello');
     }
 
 
@@ -21,16 +20,29 @@ class Site
     {
         return new View('site.add_rooms');
     }
+
     public function add_buildings(Request $request): string
     {
         return new View('site.add_buildings');
     }
+
     public function count_seats_by_buildings(Request $request): string
     {
         return new View('site.count_seats_by_buildings');
     }
-
-
+    public function count_total_area_by_institution(Request $request): string
+    {
+        return new View('site.count_total_area_by_institution');
+    }
+    public function count_total_area_by_buildings(Request $request): string
+    {
+        return new View('site.count_total_area_by_buildings');
+    }
+    public function select_room_numbers_by_buildings(Request $request): string
+    {
+        return new View('site.select_room_numbers_by_buildings');
+    }
+  
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {
