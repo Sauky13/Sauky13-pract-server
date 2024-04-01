@@ -12,12 +12,15 @@
     <div class="container">
 
         <div class="container_1">
-            <p><p>Общая площадь</p></p>
-            <div id="square">
-                <p>567567</p>
-                <p>кв.м</p>
+            <p>Общая площадь всех аудиторий</p>
+            <div id="total_area">
+                <p>
+                    <?php
+                    echo $totalArea . ' кв.м';
+                    ;
+                    ?>
+                </p>
             </div>
-
         </div>
     </div>
 </body>
