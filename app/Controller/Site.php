@@ -36,22 +36,24 @@ class Site
     }
     public function addRoom(Request $request): string
     {
+        if (Auth::check() && Auth::user()->role_id == 1) {
+            app()->route->redirect('/warning');
+        }
+
         $roomtypes = Room_types::all();
         $roombuilding = Building::all();
 
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
-                'title' => ['required'], // Используйте 'title', если это имя вашего поля в форме
+                'title' => ['required'],
                 'square' => ['required', 'numeric'],
                 'places' => ['required', 'numeric'],
                 'building_id' => ['required', 'numeric'],
                 'room_types_id' => ['required', 'numeric'],
-                // добавьте другие поля для валидации здесь
             ], [
                 'required' => 'Поле :field обязательно для заполнения',
                 'numeric' => 'Поле :field должно быть числом',
                 'places' => 'Поле :field должно быть числом',
-                // добавьте другие сообщения об ошибках здесь
             ]);
 
             if ($validator->fails()) {
@@ -70,6 +72,10 @@ class Site
 
     public function add_buildings(Request $request): string
     {
+        if (Auth::check() && Auth::user()->role_id == 1) {
+            app()->route->redirect('/warning');
+        }
+
         if ($request->method === 'POST') {
             $validator = new Validator($request->all(), [
                 'name' => ['required'],
@@ -85,11 +91,46 @@ class Site
                 );
             }
 
-            if (Building::create($request->all())) {
-                app()->route->redirect('/hello');
+            if ($_FILES['image']) {
+                $image = $_FILES['image'];
+                $root = app()->settings->getRootPath();
+                $path = $_SERVER['DOCUMENT_ROOT'] . $root . '/public/img/';
+                $name = mt_rand(0, 1000) . $image['name'];
+
+                move_uploaded_file($image['tmp_name'], $path . $name);
+
+                $building_data = $request->all();
+                $building_data['image'] = $name;
+
+                if (Building::create($building_data)) {
+                    app()->route->redirect('/hello');
+                }
+            } else {
+                if (Building::create($request->all())) {
+                    app()->route->redirect('/hello');
+                }
             }
         }
         return new View('site.add_buildings');
+    }
+
+
+    public function search_buildings(Request $request): string
+    {
+        $roombuilding = [];
+        $rooms = [];
+
+        if (!empty($_GET['building_id'])) {
+            $build_id = $_GET['building_id'];
+            $rooms = Rooms::where('building_id', $build_id)->get();
+        }
+
+        if (!empty($_GET['search'])) {
+            $search = $_GET['search'];
+            $roombuilding = Building::where('name', 'like', "%$search%")->get();
+        }
+
+        return (string) new View('site.search_buildings', ['builds' => $roombuilding]);
     }
 
     public function count_total_area_by_institution(Request $request): string

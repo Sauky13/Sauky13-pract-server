@@ -27,6 +27,7 @@
                     }
                 </style>
                 <li><a href="<?= app()->route->getUrl('/signup') ?>">Добавить нового сотрудника</a></li>
+                <li><a href="<?= app()->route->getUrl('/search_buildings') ?>">Поиск здания</a></li>
                 <li><a href="<?= app()->route->getUrl('/count_seats_by_buildings') ?>">Подсчёт кол-ва посадочных мест по
                         зданиям</a></li>
                 <li><a href="<?= app()->route->getUrl('/count_total_area_by_institution') ?>">Подсчёт общей площади учебных
@@ -50,6 +51,7 @@
                 </style>
                 <li><a href="<?= app()->route->getUrl('/add_room') ?>">Добавить новые помещения</a></li>
                 <li><a href="<?= app()->route->getUrl('/add_buildings') ?>">Добавить новые здания</a></li>
+                <li><a href="<?= app()->route->getUrl('/search_buildings') ?>">Поиск здания</a></li>
                 <li><a href="<?= app()->route->getUrl('/count_seats_by_buildings') ?>">Подсчёт кол-ва посадочных мест по
                         зданиям</a></li>
                 <li><a href="<?= app()->route->getUrl('/count_total_area_by_institution') ?>">Подсчёт общей площади учебных

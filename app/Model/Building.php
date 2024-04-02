@@ -13,5 +13,6 @@ class Building extends Model
         'building_id',
         'name',
         'address',
+        'image'
     ];
 }

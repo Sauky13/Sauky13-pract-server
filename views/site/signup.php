@@ -1,5 +1,5 @@
 <h2>Добавление нового сотрудника</h2>
-<pre><?= $message ?? ''; ?></pre>
+<p><?= $message ?? ''; ?></p>
 <form method="post">
     <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>" />
     <label><input type="text" name="login" placeholder="Логин"></label>
