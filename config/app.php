@@ -10,10 +10,10 @@ return [
         'auth' => \Middlewares\AuthMiddleware::class,
     ],
     'routeAppMiddleware' => [
-        'csrf' => \Middlewares\CSRFMiddleware::class,
-        'trim' => \Middlewares\TrimMiddleware::class,
-        'specialChars' => \Middlewares\SpecialCharsMiddleware::class,
-     ],
+        'csrf' => middlewares\CSRFMiddleware::class,
+        'trim' => middlewares\TrimMiddleware::class,
+        'specialChars' => middlewares\SpecialCharsMiddleware::class,
+    ],
      
      
     'validators' => [
