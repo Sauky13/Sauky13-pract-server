@@ -10,6 +10,13 @@ class Request
    public string $method;
    public array $headers;
 
+
+   public function file($key)
+   {
+       return $_FILES[$key] ?? null;
+   }
+
+
    public function __construct()
    {
        $this->body = $_REQUEST;

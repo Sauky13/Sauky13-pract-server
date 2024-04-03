@@ -8,19 +8,19 @@
    <title>Pop it MVC</title>
     <link rel="stylesheet" href="public/css/style.css">
 </head>
-<body style="margin:10px;   font-size:14px;
-    font-family:Verdana;">
+<body>
 <header>
     <nav>
         <?php
         if (!app()->auth::check()):
             ?>
-            <a style="text-decoration: none; color: #3d3d3d; font-weight:600" href="<?= app()->route->getUrl('/login') ?>">Авторизация</a>
+            <a class="a_nav" href="<?= app()->route->getUrl('/login') ?>">Авторизация</a>
         <?php
         else:
             ?>
-            <a style="text-decoration: none; color: #3d3d3d; font-weight:600" href="<?= app()->route->getUrl('/hello') ?>"><-</a>
-            <a style="text-decoration: none; color: #3d3d3d; font-weight:600" href="<?= app()->route->getUrl('/logout') ?>">Выйти</a>
+            
+            <a class="a_nav" href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
+            <a class="a_nav" href="<?= app()->route->getUrl('/logout') ?>">Выйти</a>
 
             <?php
             if (app()->auth::user()->role_id === 1):
